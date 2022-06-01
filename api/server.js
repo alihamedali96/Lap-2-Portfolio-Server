@@ -10,3 +10,4 @@ const postRoutes = require("./routes/Post");
 server.use("/post", postRoutes);
 
 module.exports = server;
+
