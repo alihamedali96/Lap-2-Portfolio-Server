@@ -1,8 +1,8 @@
 INSERT INTO users VALUES
-(1,"Chris","password"),
-(2,"Nasim","password"),
-(3,"Sam","password"),
-(4,"Ali","password");
+(1,"Chris","password",now),
+(2,"Nasim","password",now),
+(3,"Sam","password",now),
+(4,"Ali","password",now);
 
 INSERT INTO habits VALUES
 (1,1,"Weight Lifting","2 days",now),
