@@ -13,8 +13,8 @@ CREATE TABLE habits (
     id serial PRIMARY KEY,
     user_id int NOT NULL,
     habit_name varcar(255) NOT NULL,
-    frequency interval,
-    create_date timestamp
+    frequency interval NOT NULL,
+    create_date timestamp NOT NULL
 );
 
 DROP TABLE habit_instances;
@@ -22,6 +22,6 @@ DROP TABLE habit_instances;
 CREATE TABLE habit_instances (
     id serial PRIMARY KEY,
     habit_id int NOT NULL,
-    completed boolean,
-    create_date timestamp
+    completed boolean NOT NULL,
+    create_date timestamp NOT NULL
 );
