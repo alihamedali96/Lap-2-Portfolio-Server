@@ -25,17 +25,22 @@
   </ol>
 </details>
 
-
 ---
 <!-- ABOUT THE PROJECT -->
 # About The Project
 
 Habit Tracker
 
+## Installation and Usage
+### Connect to DB from CLI
+Once the containers are up, run this command:
+```
+docker exec -it lap-2-portfolio-server-db-1 psql -U roo rootine
+```
+
 ### Remote Hosting
 The site is hosted [here] on Netlify
 and our API is hosted [here] on Heroku.
-
 
 ---
 
@@ -76,16 +81,11 @@ and our API is hosted [here] on Heroku.
 ### API's
 - [Heroku](https://www.heroku.com/)
 
-
-
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- FUCNTIONALITY -->
 ---
 ## Functionality
-
-
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -100,20 +100,14 @@ and our API is hosted [here] on Heroku.
 # Installation and Usage
 Please follow instructions on installing and setting up this app. 
 
-
- 
 Test:
 
 - Run tests with `npm test` and check coverage with `npm run coverage`.
 
-
-
-
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 ---
+
 <!-- CONTACT/CONTRIBUTORS -->
 ## Contributors
 
@@ -122,7 +116,6 @@ Group project done by:
 - <a href="https://github.com/n451m">Nasim Bilal</a>
 - <a href="https://github.com/SamHardiment">Sam Hardiment</a>
 - <a href="https://github.com/xargon666">Chris Pucknell</a>
-
 
 Project Link: [Client](https://github.com/alihamedali96/Lap-2-Portfolio-Client)
 
