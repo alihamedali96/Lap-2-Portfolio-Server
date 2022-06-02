@@ -6,7 +6,7 @@ server.use(cors());
 server.use(express.json());
 
 server.get("/", (req, res) => res.send("Welcome to our habits library"));
-const postRoutes = require("./routes/User");
+const userRoutes = require("./routes/User");
 server.use("/user", userRoutes);
 
 module.exports = server;
