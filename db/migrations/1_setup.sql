@@ -25,3 +25,4 @@ CREATE TABLE habit_instances (
     completed boolean NOT NULL,
     create_date timestamp NOT NULL
 );
+
