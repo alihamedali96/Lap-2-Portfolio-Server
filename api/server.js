@@ -7,7 +7,7 @@ server.use(express.json());
 
 server.get("/", (req, res) => res.send("Welcome to our habits library"));
 
-const userRoutes = require("./routes/User");
+const userRoutes = require("./routes/user");
 server.use("/user", userRoutes);
 
 module.exports = server;
