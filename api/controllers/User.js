@@ -1,7 +1,7 @@
 const db = require ('../dbConfig')
 
 
-const User = require('../models/Users');
+const User = require('../models/User');
 
 async function index(req, res) {
     try {
@@ -21,4 +21,6 @@ async function show(req, res) {
     };
 }
 
-module.exports = { index, show }
+module.exports = { index, show } 
+
+//hello

@@ -56,7 +56,9 @@ module.exports = class Users {
                 reject('User could not be created');
             };
         });
-    }; k 
+    }; 
+
+    //wip
 
 
 
