@@ -1,4 +1,4 @@
-DROP TABLE users;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id serial PRIMARY KEY,
@@ -7,17 +7,17 @@ CREATE TABLE users (
     create_date timestamp NOT NULL
 );
 
-DROP TABLE habits;
+DROP TABLE IF EXISTS habits;
 
 CREATE TABLE habits (
     id serial PRIMARY KEY,
     user_id int NOT NULL,
-    habit_name varcar(255) NOT NULL,
+    habit_name varchar(255) NOT NULL,
     frequency interval NOT NULL,
     create_date timestamp NOT NULL
 );
 
-DROP TABLE habit_instances;
+DROP TABLE IF EXISTS habit_instances;
 
 CREATE TABLE habit_instances (
     id serial PRIMARY KEY,
