@@ -11,7 +11,7 @@ services:
       - PGHOST=db
       - PGPASSWORD=rootinepass
       - PGDATABASE=rootine
-      - PGPORT=543
+      - PGPORT=5432
       - NODE_ENV=development
     depends_on:
       - db
