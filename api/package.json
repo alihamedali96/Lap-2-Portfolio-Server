@@ -4,10 +4,10 @@
   "description": "",
   "main": "init.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon --legacy-watch index.js",
     "seedDev": "node dbConfig/seedDev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-     "start": "node index.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
