@@ -66,6 +66,7 @@ module.exports = class User {
                 INSERT INTO users (name,username,email,password,create_date) VALUES ($1, $2, $3, $4, $5) RETURNING *;`, [ name,username,email,password,create_date ]);
 
                 let newUser = new User(userData.rows[0]);
+                console.log("newUser",newUser)
                 resolve (newUser);
             } catch (err) {
                 console.log(err.message)
