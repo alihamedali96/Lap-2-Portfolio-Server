@@ -1,7 +1,7 @@
 const db = require ('../dbConfig')
 
 
-const User = require('../models/Users');
+const User = require('../models/User');
 
 async function index(req, res) {
     try {
@@ -20,5 +20,13 @@ async function show(req, res) {
         res.status(500).send(err);
     };
 }
+async function create(req, res) {
+    try {
+        const user = await User.create(req.body.name,req.body.password);
+        res.status(201).json({ ...user,});
+    } catch (err) {
+        res.status(500).send(err);
+    };
+}
 
-module.exports = { index, show }
+module.exports = { index, show, create }

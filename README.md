@@ -39,8 +39,8 @@ docker exec -it lap-2-portfolio-server-db-1 psql -U roo rootine
 ```
 
 ### Remote Hosting
-The site is hosted [here](https://roo-teen.netlify.app/) on Netlify
-and our API is hosted [here](#) on Heroku.
+The client side user interface is hosted [here](https://roo-teen.netlify.app/) on Netlify
+and Server side API is hosted [here](https://rooteen.herokuapp.com/) on Heroku.
 
 ---
 
