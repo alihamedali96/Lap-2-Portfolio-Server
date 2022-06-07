@@ -1,6 +1,5 @@
 const db = require ('../dbConfig')
 
-
 const User = require('../models/User');
 
 async function index(req, res) {
@@ -29,5 +28,14 @@ async function create(req, res) {
         res.status(500).send(err);
     };
 }
+async function destroy(req, res) {
+    try {
+        const user = await User.findById(parseInt(req.params.id));
+        await user.destroy()
+        res.status(204).json('User Deleted')
+    } catch (err) {
+        res.status(500).send(err);
+    };
+}
 
-module.exports = { index, show, create }
+module.exports = { index, show, create , destroy}
