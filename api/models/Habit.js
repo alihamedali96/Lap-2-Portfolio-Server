@@ -60,7 +60,7 @@ module.exports = class Habit {
     }; 
 
     //targeting habits for a particular user
-    static findAllHabitsByUserId(id){
+    static habitInstancesRoutes (id){
         return new Promise (async (resolve, reject) => {
             try {
                 let habitData = await db.query(`SELECT * FROM habits JOIN users ON users.id = habits.user_id WHERE users.id = $1 RETURNING *;`,[id]);
