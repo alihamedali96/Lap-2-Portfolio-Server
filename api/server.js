@@ -9,10 +9,10 @@ server.get("/", (req, res) => res.send("Welcome to our habits library"));
 
 const userRoutes = require("./routes/users");
 const habitRoutes = require("./routes/habits");
-const habitInstancesRoutes = require("./routes/instances");
+// const habitInstancesRoutes = require("./routes/instances");
 server.use("/users", userRoutes);
 server.use("/habits", habitRoutes);
-server.use("/habit-instances", habitInstancesRoutes);
+// server.use("/habit-instances", habitInstancesRoutes);
 
 module.exports = server;
 
