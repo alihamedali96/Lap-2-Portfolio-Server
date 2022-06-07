@@ -29,9 +29,5 @@ async function create(req, res) {
     };
 }
 
-<<<<<<< HEAD:api/controllers/User.js
 module.exports = { index, show } 
 
-=======
-module.exports = { index, show, create }
->>>>>>> 49563612dcccaf061325fdfaeaeaea0be3433c1f:api/controllers/users.js
