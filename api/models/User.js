@@ -5,6 +5,8 @@ module.exports = class Users {
         this.name = data.name;
         this.userName = data.userName;
         this.password = data.password;
+        this.create_date = data.create_date;
+
     };
     
     static get all(){ 
