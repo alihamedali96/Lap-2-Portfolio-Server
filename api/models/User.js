@@ -4,6 +4,7 @@ module.exports = class User {
         this.id = data.id;   
         this.name = data.name;
         this.userName = data.userName;
+        this.email = date.email;
         this.password = data.password;
         this.create_date = data.create_date;
 
