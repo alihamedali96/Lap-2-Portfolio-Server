@@ -11,9 +11,9 @@ module.exports = class Habit {
     static get all(){ 
         return new Promise (async (resolve, reject) => {
             try {
-                const result = await db.query('SELECT * FROM habits;')
-                const users = result.rows.map(a => ({ id: a.id, name: a.name }))
-                resolve(Habit);
+                const result = await db.query('SELECT * FROM habits;');
+                const habits = result.rows.map(habit => new Habit(habit));
+                resolve(habits);
             } catch (err) {
                 reject("Error retrieving all habits")
             }
@@ -60,19 +60,16 @@ module.exports = class Habit {
     }; 
 
     //targeting habits for a particular user
-    static habitInstancesRoutes (id){
+    static findAllHabitsByUserId(id){
         return new Promise (async (resolve, reject) => {
             try {
                 let habitData = await db.query(`SELECT * FROM habits JOIN users ON users.id = habits.user_id WHERE users.id = $1 RETURNING *;`,[id]);
-                let habits = result.rows.map(a => ({ id: a.id, name: a.name }))
+                let habits = habitData.rows.map(habit => new Habit(habit))
                 resolve(habits);
             } catch (err) {
                 reject('user not found');
             };
         });
     };
-
-   
-
 
 }
