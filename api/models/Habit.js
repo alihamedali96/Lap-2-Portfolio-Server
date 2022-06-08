@@ -63,7 +63,8 @@ module.exports = class Habit {
     static findAllHabitsByUserId(id){
         return new Promise (async (resolve, reject) => {
             try {
-                let habitData = await db.query(`SELECT * FROM habits JOIN users ON users.id = habits.user_id WHERE users.id = $1 RETURNING *;`,[id]);
+                console.log(id)
+                let habitData = await db.query(`SELECT * FROM habits JOIN users ON users.id = habits.user_id WHERE users.id = $1;`,[id]);
                 let habits = habitData.rows.map(habit => new Habit(habit))
                 resolve(habits);
             } catch (err) {
