@@ -41,9 +41,10 @@ module.exports = class User {
   static findByUsername(username) {
     return new Promise(async (resolve, reject) => {
       try {
-        let userData = await db.query("SELECT * FROM users WHERE email = $1;", [
-          username,
-        ]);
+        let userData = await db.query(
+          "SELECT * FROM users WHERE username = $1;",
+          [username]
+        );
         let user = new User(userData.rows[0]);
         resolve(user);
       } catch (err) {
