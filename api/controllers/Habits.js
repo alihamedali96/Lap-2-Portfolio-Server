@@ -32,6 +32,7 @@ async function destroy (req, res) {
 
 async function create (req, res) {
     try {
+        console.log("req.body",req.body)
         const habit = await Habit.create(req.body);
         res.status(201).json(habit)
     } catch (err) {
@@ -51,6 +52,6 @@ async function findAllHabitsByUserId (req, res) {
 } 
 
 
-
+// force filepath change comment...
 
 module.exports = { index, show, destroy , create , findAllHabitsByUserId} 

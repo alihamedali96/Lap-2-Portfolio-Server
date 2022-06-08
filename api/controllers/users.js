@@ -22,16 +22,12 @@ async function show(req, res) {
 }
 async function create(req, res) {
     try {
-        const user = await User.create(req.body.name,req.body.password);
+        console.log("req.body",req.body)
+        const user = await User.create(req.body);
         res.status(201).json({ ...user,});
     } catch (err) {
         res.status(500).send(err);
     };
 }
 
-<<<<<<< HEAD:api/controllers/User.js
-module.exports = { index, show } 
-
-=======
 module.exports = { index, show, create }
->>>>>>> 49563612dcccaf061325fdfaeaeaea0be3433c1f:api/controllers/users.js
