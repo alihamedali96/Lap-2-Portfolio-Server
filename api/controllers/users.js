@@ -4,6 +4,7 @@ const User = require("../models/User");
 
 async function index(req, res) {
   try {
+    console.log("req.body", req.body);
     const users = await User.all;
     res.status(200).json(users);
   } catch (err) {
@@ -13,6 +14,7 @@ async function index(req, res) {
 
 async function show(req, res) {
   try {
+    console.log("req.body", req.body);
     const user = await User.findById(req.params.id);
     res.status(200).json({ ...user });
   } catch (err) {

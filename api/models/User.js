@@ -35,19 +35,20 @@ module.exports = class User {
     });
   }
 
-  static findByUsername(username) {
-    return new Promise(async (resolve, reject) => {
-      try {
-        let userData = await db.query("SELECT * FROM users WHERE email = $1;", [
-          username,
-        ]);
-        let user = new User(userData.rows[0]);
-        resolve(user);
-      } catch (err) {
-        reject("user not found");
-      }
-    });
-  }
+
+    static findByUsername(username) {
+        return new Promise(async (resolve, reject) => {
+          try {
+            let userData = await db.query("SELECT * FROM users WHERE username = $1;", [
+              username
+            ]);
+            let user = new User(userData.rows[0]);
+            resolve(user);
+          } catch (err) {
+            reject("user not found");
+          }
+        });
+    }
 
   destroy() {
     return new Promise(async (resolve, reject) => {
@@ -63,26 +64,12 @@ module.exports = class User {
     });
   }
 
-  static findByUsername(username) {
-    return new Promise(async (resolve, reject) => {
-      try {
-        let userData = await db.query(
-          "SELECT * FROM users WHERE username = $1;",
-          [username]
-        );
-        let user = new User(userData.rows[0]);
-        resolve(user);
-      } catch (err) {
-        reject("user not found");
-      }
-    });
-  }
-  static create(data) {
-    return new Promise(async (resolve, reject) => {
-      try {
-        console.log("data", data);
-        const { name, username, email, password } = data;
-        console.log(name, username, email, password);
+    static create(data){
+        return new Promise (async (resolve, reject) => {
+            try {
+               
+                console.log("data",data);
+                const { name , username, email , password } = data
 
         const usernameExistsTest = await db.query(
           `SELECT count(*) FROM users WHERE username = ($1)`,
