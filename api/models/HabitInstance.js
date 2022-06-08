@@ -33,7 +33,6 @@ module.exports = class HabitInstance {
         });
     };
 
-
     destroy(){
         return new Promise(async(resolve, reject) => {
             try {
@@ -44,8 +43,6 @@ module.exports = class HabitInstance {
             }
         })   
     };
-
-
 
     static create(name){
         return new Promise (async (resolve, reject) => {
@@ -59,20 +56,16 @@ module.exports = class HabitInstance {
         });
     }; 
 
-    //targeting habit instances for a particular user
-    static habitInstancesRoutes (id){
+    // return habit instances for a particular habit
+    static findAllInstancesByHabitId(id_val){
         return new Promise (async (resolve, reject) => {
             try {
-                let habitData = await db.query(`SELECT * FROM habit_instances JOIN users ON users.id = habits.user_id WHERE users.id = $1 RETURNING *;`,[id]);
-                let habits = result.rows.map(a => ({ id: a.id, name: a.name }))
-                resolve(habits);
+                let instanceData = await db.query(`SELECT habit_instances.* FROM habit_instances JOIN habits ON habits.id = habit_instances.habit_id WHERE habits.id = $1;`,[id_val]);
+                let instances = instanceData.rows.map(instance => new HabitInstance(instance))
+                resolve(instances);
             } catch (err) {
                 reject('habbit instances not found');
             };
         });
     };
-
-   
-
-
 }
