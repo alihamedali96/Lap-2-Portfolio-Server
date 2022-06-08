@@ -29,4 +29,12 @@ async function create(req, res) {
   }
 }
 
-module.exports = { index, show, create };
+async function login(req, res) {
+    try {
+        console.log("req.body", req.body);
+        const user = await User.findByUsername(req.body.username)
+        if(!user)
+    }
+}
+
+module.exports = { index, show, create, login };
