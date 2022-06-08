@@ -1,11 +1,11 @@
-version: '3'
+version: "3"
 services:
   server:
     image: node:12.18.4
     working_dir: /code
-    ports: 
+    ports:
       - 3000:3000
-    environment: 
+    environment:
       - PGUSER=roo
       - PGHOST=db
       - PGPASSWORD=rootinepass
@@ -24,9 +24,9 @@ services:
     ports:
       - 35432:5432
     volumes:
-      - "dbdata:/var/lib/postgresql/data"
+      ##- "dbdata:/var/lib/postgresql/data"
       - "./db/migrations:/docker-entrypoint-initdb.d/:ro"
-    environment: 
+    environment:
       - POSTGRES_DB=rootine
       - POSTGRES_USER=roo
       - POSTGRES_PASSWORD=rootinepass

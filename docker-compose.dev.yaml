@@ -1,17 +1,17 @@
-version: '3'
+version: "3"
 services:
   server:
     container_name: demo_dev_server
     image: node:12.18.4
     working_dir: /code
-    ports: 
+    ports:
       - 3000:3000
-    environment: 
+    environment:
       - PGUSER=roo
       - PGHOST=db
       - PGPASSWORD=rootinepass
       - PGDATABASE=rootine
-      - PGPORT=543
+      - PGPORT=5432
       - NODE_ENV=development
     depends_on:
       - db
@@ -26,13 +26,13 @@ services:
     image: postgres:latest
     volumes:
       - "dbdata:/var/lib/postgresql/data"
-      - "./db/migrations:/docker-entrypoint-initdb.d/:ro"
-    environment: 
+      ##- "./db/migrations:/docker-entrypoint-initdb.d/:ro"
+    environment:
       - POSTGRES_DB=rootine
       - POSTGRES_USER=roo
       - POSTGRES_PASSWORD=rootinepass
 volumes:
   dbdata:
-networks: 
+networks:
   default:
     name: demo_dev_app
