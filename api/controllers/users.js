@@ -33,11 +33,11 @@ async function login(req, res) {
   try {
     console.log("req.body", req.body);
     const user = await User.findByUsername(req.body.username);
+    console.log(user);
     if (!user) {
       throw new Error("No user with this username");
     }
-    const authed = compare(req.body.password, user.password);
-    if (!!authed) {
+    if (req.body.password === user.password) {
       res.status(200).json({ user: user.username });
     } else {
       throw new Error("User could not be authenticated");
