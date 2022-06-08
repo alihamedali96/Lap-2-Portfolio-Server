@@ -44,7 +44,7 @@ async function create (req, res) {
 
 async function findAllHabitsByUserId (req, res) {
     try {
-        const habit = await Habit.findAllHabitsByUserId(req.body);
+        const habit = await Habit.findAllHabitsByUserId(req.params.id);
         res.status(201).json(habit)
     } catch (err) {
         res.status(422).json({err})
