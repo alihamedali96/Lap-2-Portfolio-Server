@@ -35,18 +35,15 @@ async function login(req, res) {
   try {
     console.log("req.body", req.body);
     const user = await User.findByUsername(req.body.username);
-    console.log(user);
-    if (!user) {
-      throw new Error("No user with this username");
-    }
-    if (req.body.password === user.password) {
-      res.status(200).json({ ...user });
-    } else {
+    console.log("User Data",user);
+    if (req.body.password != user.password) {
       throw new Error("User could not be authenticated");
     }
+    return res.status(200).json({ ...user });
   } catch (err) {
-    res.status(401).json({ err });
+    res.status(401).json(`ERROR: ${err.message}`);
   }
 }
 
 module.exports = { index, show, create, login };
+
