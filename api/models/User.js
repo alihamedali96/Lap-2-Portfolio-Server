@@ -45,7 +45,7 @@ module.exports = class User {
             let user = new User(userData.rows[0]);
             resolve(user);
           } catch (err) {
-            reject("user not found");
+            reject(new Error("Username not found"));
           }
         });
     }
@@ -97,6 +97,4 @@ module.exports = class User {
       }
     });
   }
-
-  //wip
 };
