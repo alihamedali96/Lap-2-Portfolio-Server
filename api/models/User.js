@@ -37,8 +37,8 @@ module.exports = class User {
     static findByUsername(username) {
         return new Promise(async (resolve, reject) => {
           try {
-            let userData = await db.query("SELECT * FROM users WHERE email = $1;", [
-              username,
+            let userData = await db.query("SELECT * FROM users WHERE username = $1;", [
+              username
             ]);
             let user = new User(userData.rows[0]);
             resolve(user);
@@ -59,22 +59,6 @@ module.exports = class User {
         })   
     };
 
-<<<<<<< HEAD
-  static findByUsername(username) {
-    return new Promise(async (resolve, reject) => {
-      try {
-        let userData = await db.query(
-          "SELECT * FROM users WHERE username = $1;",
-          [username]
-        );
-        let user = new User(userData.rows[0]);
-        resolve(user);
-      } catch (err) {
-        reject("user not found");
-      }
-    });
-  }
-=======
     static create(data){
         return new Promise (async (resolve, reject) => {
             try {
@@ -82,7 +66,6 @@ module.exports = class User {
                 console.log("data",data);
                 const { name , username, email , password } = data
                 console.log(name,username,email,password);
->>>>>>> a4579587962695f4157f6dddf581455254bdcae8
 
                 const usernameExistsTest = await db.query(`SELECT count(*) FROM users WHERE username = ($1)`, [username])
                 // console.log("userExistsTest",userExistsTest.rows[0].count > 0)
