@@ -40,7 +40,7 @@ async function login(req, res) {
       throw new Error("No user with this username");
     }
     if (req.body.password === user.password) {
-      res.status(200).json({ user: user.username });
+      res.status(200).json({ ...user });
     } else {
       throw new Error("User could not be authenticated");
     }
