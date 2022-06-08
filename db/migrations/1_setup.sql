@@ -26,6 +26,6 @@ CREATE TABLE habit_instances (
     habit_id int NOT NULL,
     completed boolean NOT NULL,
     create_date timestamp NOT NULL,
-    due_date timestamp NOT NULL,
+    due_date timestamp NOT NULL
 );
 
