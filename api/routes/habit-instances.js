@@ -6,6 +6,7 @@ const habitInstanceControllers = require('../controllers/habit-instances')
 router.get('/', habitInstanceControllers.index);
 router.get('/:id', habitInstanceControllers.show);
 router.put('/:id', habitInstanceControllers.update);
+router.delete('/:id', habitInstanceControllers.destroy);
 router.get('/habit/:id', habitInstanceControllers.findAllInstancesByHabitId);
 
 module.exports = router;
