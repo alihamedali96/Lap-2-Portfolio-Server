@@ -52,9 +52,13 @@ module.exports = class Habit {
   static create(data) {
     return new Promise(async (resolve, reject) => {
       try {
+        // create_date timestamp
+        const timestamp = Date.now();
+        const create_date = new Date(timestamp).toLocaleString();
+        
         let habitsData = await db.query(
-          "INSERT INTO habits (name, frequency) VALUES ($1, $2) RETURNING *;",
-          [data.habit_name, data.frequency]
+          "INSERT INTO habits (user_id, habit_name, frequency, create_date) VALUES ($1, $2, $3, $4) RETURNING *;",
+          [data.user_id, data.habit_name, data.frequency, create_date]
         );
         let habits = new Habit(habitsData.rows[0]);
         resolve(habits);
