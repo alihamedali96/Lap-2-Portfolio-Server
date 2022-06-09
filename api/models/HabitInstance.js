@@ -33,17 +33,6 @@ module.exports = class HabitInstance {
         });
     };
 
-    destroy(){
-        return new Promise(async(resolve, reject) => {
-            try {
-                const result = await db.query('DELETE FROM habit_instances WHERE id = $1 RETURNING id', [ this.id ]);
-                resolve(`habit ${result.id} was deleted`)
-            } catch (err) {
-                reject('habit instances could not be deleted')
-            }
-        })   
-    };
-
     static create(name){
         return new Promise (async (resolve, reject) => {
             try {
@@ -68,4 +57,27 @@ module.exports = class HabitInstance {
             };
         });
     };
+
+    destroy(){
+        return new Promise(async(resolve, reject) => {
+            try {
+                const result = await db.query('DELETE FROM habit_instances WHERE id = $1 RETURNING id', [ this.id ]);
+                resolve(`habit ${result.id} was deleted`)
+            } catch (err) {
+                reject('habit instances could not be deleted')
+            }
+        })   
+    };
+
+    update(boolean){
+        return new Promise (async (resolve, reject) => {
+            try {
+                await db.query('UPDATE habit_instances (complete) VALUES ($1) WHERE habit_instances.id = $2;', [ boolean , this.id ]);
+                resolve(`Habit instance ${this.id} has been updated`);
+            } catch (err) {
+                reject(new Error(`Habit instance ${this.id} was not updated`));
+            };
+        });
+    }; 
+
 }
