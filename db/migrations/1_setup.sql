@@ -15,7 +15,7 @@ CREATE TABLE habits (
     id serial PRIMARY KEY,
     user_id int NOT NULL,
     habit_name varchar(255) NOT NULL,
-    frequency interval NOT NULL,
+    frequency int NOT NULL,
     create_date timestamp NOT NULL
 );
 
