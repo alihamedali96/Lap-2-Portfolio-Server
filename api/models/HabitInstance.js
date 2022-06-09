@@ -72,7 +72,8 @@ module.exports = class HabitInstance {
     update(boolean){
         return new Promise (async (resolve, reject) => {
             try {
-                await db.query('UPDATE habit_instances (complete) VALUES ($1) WHERE habit_instances.id = $2;', [ boolean , this.id ]);
+                console.log(this.id,boolean)
+                await db.query('UPDATE habit_instances SET completed = $1 WHERE habit_instances.id = $2;', [ boolean , this.id ]);
                 resolve(`Habit instance ${this.id} has been updated`);
             } catch (err) {
                 reject(new Error(`Habit instance ${this.id} was not updated`));

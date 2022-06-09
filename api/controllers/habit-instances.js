@@ -4,8 +4,8 @@ const HabitInstance = require('../models/HabitInstance');
 
 async function index(req, res) {
     try {
-        const habitIns = await HabitInstance.all;
-        res.status(200).json(habitIns);
+        const instance = await HabitInstance.all;
+        res.status(200).json(instance);
     } catch (err) {
         res.status(500).json({ err });
     }
@@ -13,8 +13,8 @@ async function index(req, res) {
 
 async function show(req, res) {
     try {
-        const habit = await HabitInstance.findById(req.params.id);
-        res.status(200).json({ ...habit,});
+        const instance = await HabitInstance.findById(req.params.id);
+        res.status(200).json({ ...instance,});
     } catch (err) {
         res.status(500).json({ err });
     };
@@ -22,8 +22,8 @@ async function show(req, res) {
 
 async function destroy (req, res) {
     try {
-        const habit = await HabitInstance.findById(req.params.id);
-        const res = habit.destroy();
+        const instance = await HabitInstance.findById(req.params.id);
+        await instance.destroy();
         res.status(204).end();
     } catch (err) {
         res.status(404).json({err});
@@ -50,8 +50,9 @@ async function findAllInstancesByHabitId (req, res) {
 
 async function update(req, res) {
     try {
+        // console.log("req",req)
         const instance = await HabitInstance.findById(req.params.id);
-        const res = instance.update();
+        await instance.update(req.body.completed)
         res.status(204).end();
     } catch (err) {
         res.status(404).json(err.message);
@@ -59,4 +60,4 @@ async function update(req, res) {
 }
 
 
-module.exports = { index, show, destroy , create , update, findAllInstancesByHabitId} 
+module.exports = { index, show, destroy , create , update, findAllInstancesByHabitId } 
