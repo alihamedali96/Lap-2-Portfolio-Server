@@ -60,10 +60,10 @@ module.exports = class Habit {
     }; 
 
     //targeting habits for a particular user
-    static findAllHabitsByUserId(id){
+    static findAllHabitsByUserId(id_val){
         return new Promise (async (resolve, reject) => {
             try {
-                let habitData = await db.query(`SELECT * FROM habits JOIN users ON users.id = habits.user_id WHERE users.id = $1 RETURNING *;`,[id]);
+                let habitData = await db.query(`SELECT habits.* FROM habits JOIN users ON users.id = habits.user_id WHERE users.id = $1;`,[id_val]);
                 let habits = habitData.rows.map(habit => new Habit(habit))
                 resolve(habits);
             } catch (err) {

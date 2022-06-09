@@ -7,7 +7,7 @@ async function index(req, res) {
         const habits = await Habit.all;
         res.status(200).json(habits);
     } catch (err) {
-        res.status(500).send(err);
+        res.status(500).json({ err });
     }
 }
 
@@ -16,7 +16,7 @@ async function show(req, res) {
         const habit = await Habit.findById(req.params.id);
         res.status(200).json({ ...habit,});
     } catch (err) {
-        res.status(500).send(err);
+        res.status(500).json({ err });
     };
 }
 
@@ -44,7 +44,7 @@ async function create (req, res) {
 
 async function findAllHabitsByUserId (req, res) {
     try {
-        const habit = await Habit.findAllHabitsByUserId(req.body);
+        const habit = await Habit.findAllHabitsByUserId(req.params.id);
         res.status(201).json(habit)
     } catch (err) {
         res.status(422).json({err})
