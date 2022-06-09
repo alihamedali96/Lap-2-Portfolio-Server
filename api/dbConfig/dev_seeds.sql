@@ -7,11 +7,11 @@ VALUES
 
 INSERT INTO habits (user_id,habit_name,frequency,create_date) 
 VALUES
-(1,'Weight Lifting','2 days',NOW()),
-(2,'Weight Lifting','2 days',NOW()),
-(3,'Running','2 days',NOW()),
-(3,'Dancing','2 days',NOW()),
-(4,'Boxing','2 days',NOW());
+(1,'Weight Lifting','2',NOW()),
+(2,'Weight Lifting','2',NOW()),
+(3,'Running','2',NOW()),
+(3,'Dancing','2',NOW()),
+(4,'Boxing','2',NOW());
 
 INSERT INTO habit_instances (habit_id,completed,create_date,due_date) 
 VALUES
